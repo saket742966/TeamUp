@@ -317,6 +317,92 @@
 </section>
 
 
+<!-- Post a Project Section -->
+<section class="post-project-section" id="post-project">
+
+    <div class="section-heading">
+        <p class="section-tag">HAVE AN IDEA?</p>
+        <h2>Start Your <span>Own Project</span></h2>
+        <p>Share your idea and find students who can help bring it to life.</p>
+    </div>
+
+    <div class="project-form-container">
+
+        <form id="project-form">
+
+            <div class="form-group">
+                <label for="project-title">Project Title</label>
+                <input
+                    type="text"
+                    id="project-title"
+                    placeholder="Enter your project title"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="project-description">Project Description</label>
+                <textarea
+                    id="project-description"
+                    placeholder="Describe your project idea..."
+                    rows="4"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="project-type">Project Category</label>
+                <select id="project-type" required>
+                    <option value="">Select a category</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="AI / Machine Learning">AI / Machine Learning</option>
+                    <option value="App Development">App Development</option>
+                    <option value="IoT">IoT</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="required-skills">Required Skills</label>
+                <input
+                    type="text"
+                    id="required-skills"
+                    placeholder="Example: HTML, CSS, Python"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="open-positions">Number of Open Positions</label>
+                <input
+                    type="number"
+                    id="open-positions"
+                    min="1"
+                    placeholder="Example: 3"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="project-contact">Your Email Address</label>
+                <input
+                    type="email"
+                    id="project-contact"
+                    placeholder="Enter your college email"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="submit-project-btn">
+                Post Your Project
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
 </body>
 
 </html>

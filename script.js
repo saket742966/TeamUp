@@ -173,9 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </a>
                     </div>
 
-                    <button class="contact-student-btn" data-index="${index}">
-                        View Profile
-                    </button>
+                    <button class="contact-student-btn" data-index="${students.indexOf(student)}">
 
                 </div>
             `;
@@ -188,11 +186,71 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Display all students when the website loads
     displayStudents(students);
-           // Student Search and Filtering
+    // Student Search and Filtering
 
     const studentSearch = document.getElementById("student-search");
     const studentSkill = document.getElementById("student-skill");
     const studentRole = document.getElementById("student-role");
+
+        // Student Profile Popup
+
+    const studentModal = document.getElementById("student-modal");
+    const closeStudentModal = document.getElementById("close-student-modal");
+
+    // Open Student Profile
+    document.getElementById("student-container").addEventListener("click", function (event) {
+
+        if (event.target.classList.contains("contact-student-btn")) {
+
+            const studentIndex = Number(event.target.dataset.index);
+
+            const student = students[studentIndex];
+
+            if (!student) return;
+
+            document.getElementById("modal-student-avatar").textContent = student.initials;
+
+            document.getElementById("modal-student-name").textContent = student.name;
+
+            document.getElementById("modal-student-role").textContent = student.role;
+
+            document.getElementById("modal-student-cgpa").textContent =
+                "CGPA: " + student.cgpa;
+
+            document.getElementById("modal-student-skills").innerHTML =
+                student.skills.map(function (skill) {
+                    return `<span>${skill}</span>`;
+                }).join("");
+
+            const projectLink = document.getElementById("modal-student-project");
+
+            projectLink.textContent = student.project;
+            projectLink.href = student.projectLink;
+
+            const emailLink = document.getElementById("modal-student-email");
+
+            emailLink.textContent = student.email;
+            emailLink.href = "mailto:" + student.email;
+
+            studentModal.style.display = "flex";
+
+        }
+
+    });
+
+    // Close Student Profile
+    closeStudentModal.addEventListener("click", function () {
+        studentModal.style.display = "none";
+    });
+
+    // Close Popup by Clicking Outside
+    studentModal.addEventListener("click", function (event) {
+
+        if (event.target === studentModal) {
+            studentModal.style.display = "none";
+        }
+
+    });
 
     // Filter Students
     function filterStudents() {

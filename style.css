@@ -921,3 +921,75 @@ header {
     }
 
 }
+
+
+/* Project Details Popup */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--white-color);
+    padding: 35px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    border: none;
+    background: none;
+    font-size: 28px;
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+
+.modal-content h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#modal-project-category {
+    color: var(--secondary-color);
+    font-size: 13px;
+}
+
+#modal-project-description {
+    margin-top: 15px;
+    color: var(--secondary-color);
+}
+
+#modal-project-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#modal-project-skills span {
+    background-color: #f0f0eb;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.modal-info {
+    margin-top: 20px;
+    font-size: 14px;
+}

@@ -73,9 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span>${project.level}</span>
                     </div>
 
-                    <button class="view-project-btn" data-index="${index}">
-                        View Project
-                    </button>
+                    <button class="view-project-btn" data-index="${projects.indexOf(project)}">
 
                 </div>
             `;
@@ -127,6 +125,53 @@ document.addEventListener("DOMContentLoaded", function () {
     // Listen for Category Selection
     projectCategory.addEventListener("change", filterProjects);
 
+    // Project Details Popup
 
+    const projectModal = document.getElementById("project-modal");
+    const closeProjectModal = document.getElementById("close-project-modal");
+
+    // Open Project Details
+    document.getElementById("project-container").addEventListener("click", function (event) {
+
+        if (event.target.classList.contains("view-project-btn")) {
+
+            const projectIndex = Number(event.target.dataset.index);
+            const project = projects.find(function (item, index) {
+                return index === projectIndex;
+            });
+
+            if (!project) return;
+
+            document.getElementById("modal-project-title").textContent = project.title;
+            document.getElementById("modal-project-category").textContent = project.categoryName;
+            document.getElementById("modal-project-description").textContent = project.description;
+
+            document.getElementById("modal-project-skills").innerHTML =
+                project.skills.map(function (skill) {
+                    return `<span>${skill}</span>`;
+                }).join("");
+
+            document.getElementById("modal-project-positions").textContent =
+                project.positions + " Positions Open";
+
+            document.getElementById("modal-project-level").textContent =
+                "Difficulty: " + project.level;
+
+            projectModal.style.display = "flex";
+        }
+
+    });
+
+    // Close Popup
+    closeProjectModal.addEventListener("click", function () {
+        projectModal.style.display = "none";
+    });
+
+    // Close Popup by Clicking Outside
+    projectModal.addEventListener("click", function (event) {
+        if (event.target === projectModal) {
+            projectModal.style.display = "none";
+        }
+    });
 
 });

@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const studentModal = document.getElementById("student-modal");
     const closeStudentModal = document.getElementById("close-student-modal");
 
-        // Project Form Validation
+           // Project Form Submission
 
     const projectForm = document.getElementById("project-form");
     const formMessage = document.getElementById("form-message");
@@ -207,16 +207,22 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
 
         const projectTitle = document.getElementById("project-title").value.trim();
+
         const projectDescription = document.getElementById("project-description").value.trim();
-        const projectType = document.getElementById("project-type").value;
+
+        const projectType = document.getElementById("project-type");
+
         const requiredSkills = document.getElementById("required-skills").value.trim();
+
         const openPositions = document.getElementById("open-positions").value;
+
         const projectContact = document.getElementById("project-contact").value.trim();
 
+        // Check Required Fields
         if (
             projectTitle === "" ||
             projectDescription === "" ||
-            projectType === "" ||
+            projectType.value === "" ||
             requiredSkills === "" ||
             openPositions === "" ||
             projectContact === ""
@@ -229,14 +235,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        formMessage.textContent = "Your project has been submitted successfully!";
+        // Create New Project
+        const newProject = {
+
+            title: projectTitle,
+
+            category: projectType.value,
+
+            categoryName: projectType.options[projectType.selectedIndex].text,
+
+            description: projectDescription,
+
+            skills: requiredSkills.split(",").map(function (skill) {
+                return skill.trim();
+            }).filter(Boolean),
+
+            positions: Number(openPositions),
+
+            level: "Student Submitted",
+
+            contact: projectContact
+
+        };
+
+        // Add Project to Project Array
+        projects.push(newProject);
+
+        // Refresh Project Display
+        filterProjects();
+
+        // Show Success Message
+        formMessage.textContent = "Your project has been added successfully!";
         formMessage.style.color = "green";
 
+        // Reset Form
         projectForm.reset();
 
     });
 
-    
     // Open Student Profile
     document.getElementById("student-container").addEventListener("click", function (event) {
 
@@ -401,6 +437,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Difficulty: " + project.level;
 
             projectModal.style.display = "flex";
+                        const projectContact = document.getElementById("modal-project-contact");
+
+            if (project.contact) {
+
+                projectContact.textContent = project.contact;
+                projectContact.href = "mailto:" + project.contact;
+
+            } else {
+
+                projectContact.textContent = "Contact information unavailable";
+                projectContact.removeAttribute("href");
+
+            }
         }
 
     });

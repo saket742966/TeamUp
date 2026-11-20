@@ -177,7 +177,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Display all students when the website loads
     displayStudents(students);
+        // Student Search Functionality
 
+    const studentSearch = document.getElementById("student-search");
+
+    studentSearch.addEventListener("input", function () {
+
+        const searchText = studentSearch.value.toLowerCase();
+
+        const filteredStudents = students.filter(function (student) {
+
+            return (
+                student.name.toLowerCase().includes(searchText) ||
+                student.role.toLowerCase().includes(searchText) ||
+                student.skills.join(" ").toLowerCase().includes(searchText) ||
+                student.project.toLowerCase().includes(searchText)
+            );
+
+        });
+
+        displayStudents(filteredStudents);
+
+    });
 
 
     // Project Search and Category Filtering

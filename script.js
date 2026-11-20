@@ -197,6 +197,46 @@ document.addEventListener("DOMContentLoaded", function () {
     const studentModal = document.getElementById("student-modal");
     const closeStudentModal = document.getElementById("close-student-modal");
 
+        // Project Form Validation
+
+    const projectForm = document.getElementById("project-form");
+    const formMessage = document.getElementById("form-message");
+
+    projectForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const projectTitle = document.getElementById("project-title").value.trim();
+        const projectDescription = document.getElementById("project-description").value.trim();
+        const projectType = document.getElementById("project-type").value;
+        const requiredSkills = document.getElementById("required-skills").value.trim();
+        const openPositions = document.getElementById("open-positions").value;
+        const projectContact = document.getElementById("project-contact").value.trim();
+
+        if (
+            projectTitle === "" ||
+            projectDescription === "" ||
+            projectType === "" ||
+            requiredSkills === "" ||
+            openPositions === "" ||
+            projectContact === ""
+        ) {
+
+            formMessage.textContent = "Please fill in all the fields.";
+            formMessage.style.color = "red";
+
+            return;
+
+        }
+
+        formMessage.textContent = "Your project has been submitted successfully!";
+        formMessage.style.color = "green";
+
+        projectForm.reset();
+
+    });
+
+    
     // Open Student Profile
     document.getElementById("student-container").addEventListener("click", function (event) {
 

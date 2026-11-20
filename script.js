@@ -131,6 +131,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const studentContainer = document.getElementById("student-container");
 
         studentContainer.innerHTML = "";
+                if (studentList.length === 0) {
+
+            studentContainer.innerHTML = `
+                <div class="no-results">
+                    <h3>No Students Found</h3>
+                    <p>Try changing your search keyword or filters.</p>
+                </div>
+            `;
+
+            return;
+        }
 
         studentList.forEach(function (student, index) {
 

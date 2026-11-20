@@ -430,3 +430,159 @@ header {
 .view-project-btn:hover {
     background-color: #444444;
 }
+
+
+
+/* ==============================
+   FIND TEAMMATES SECTION
+================================ */
+
+.students-section {
+    background-color: var(--white-color);
+}
+
+/* Student Filters */
+
+.student-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.student-filters input,
+.student-filters select {
+    padding: 13px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--background-color);
+    outline: none;
+}
+
+.student-filters input {
+    width: 280px;
+}
+
+.student-filters select {
+    width: 190px;
+}
+
+.student-filters input:focus,
+.student-filters select:focus {
+    border-color: var(--primary-color);
+}
+
+/* Student Cards Container */
+
+.student-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Individual Student Card */
+
+.student-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Student Avatar */
+
+.student-avatar {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Student Name and Role */
+
+.student-card h3 {
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+.student-role {
+    color: #777777;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Student Description */
+
+.student-description {
+    color: var(--secondary-color);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+/* Student Skills */
+
+.student-skills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.student-skills span {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+/* Student CGPA and Project Link */
+
+.student-cgpa {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.student-project-link {
+    display: block;
+    color: #555555;
+    font-size: 12px;
+    text-decoration: underline;
+    margin-bottom: 18px;
+}
+
+/* View Profile Button */
+
+.contact-student-btn {
+    width: 100%;
+    padding: 11px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.contact-student-btn:hover {
+    background-color: #444444;
+}

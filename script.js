@@ -90,26 +90,43 @@ document.addEventListener("DOMContentLoaded", function () {
     displayProjects(projects);
 
 
-    // Project Search Functionality
-    const projectSearch = document.getElementById("project-search");
 
-    projectSearch.addEventListener("input", function () {
+    // Project Search and Category Filtering
+
+    const projectSearch = document.getElementById("project-search");
+    const projectCategory = document.getElementById("project-category");
+
+    // Filter Projects
+    function filterProjects() {
 
         const searchText = projectSearch.value.toLowerCase();
+        const selectedCategory = projectCategory.value;
 
         const filteredProjects = projects.filter(function (project) {
 
-            return (
+            const matchesSearch =
                 project.title.toLowerCase().includes(searchText) ||
                 project.description.toLowerCase().includes(searchText) ||
-                project.skills.join(" ").toLowerCase().includes(searchText)
-            );
+                project.skills.join(" ").toLowerCase().includes(searchText);
+
+            const matchesCategory =
+                selectedCategory === "all" ||
+                project.category === selectedCategory;
+
+            return matchesSearch && matchesCategory;
 
         });
 
         displayProjects(filteredProjects);
 
-    });
+    }
+
+    // Listen for Search Input
+    projectSearch.addEventListener("input", filterProjects);
+
+    // Listen for Category Selection
+    projectCategory.addEventListener("change", filterProjects);
+
 
 
 });

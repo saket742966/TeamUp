@@ -1,532 +1,489 @@
 
-/* ==============================
-   TEAMUP - JAVASCRIPT
-================================ */
+/* PROJECT DATA */
 
-document.addEventListener("DOMContentLoaded", function () {
+var projects = [
+    {
+        name: "Campus Connect",
+        category: "Web Development",
+        description: "A platform where college students can connect, share notes and discover campus events.",
+        skills: "HTML, CSS, JavaScript",
+        positions: 2,
+        owner: "Rahul Sharma",
+        contact: "rahul@example.com",
+        roles: "Frontend Developer and Backend Developer"
+    },
 
-    console.log("TeamUp application loaded successfully!");
+    {
+        name: "Smart Attendance System",
+        category: "AI / ML",
+        description: "An attendance management system using facial recognition technology.",
+        skills: "Python, OpenCV, ML",
+        positions: 2,
+        owner: "Ananya Verma",
+        contact: "ananya@example.com",
+        roles: "Python Developer and ML Developer"
+    },
 
-    // Project Data
-    const projects = [
+    {
+        name: "Smart Home Automation",
+        category: "IoT",
+        description: "A home automation system that controls electrical devices through mobile applications.",
+        skills: "Arduino, IoT, C++",
+        positions: 1,
+        owner: "Arjun Mehta",
+        contact: "arjun@example.com",
+        roles: "IoT Developer"
+    },
 
-        {
-            title: "Campus Connect",
-            category: "web",
-            categoryName: "Web Development",
-            description: "A platform that helps college students connect, share resources and discover campus events.",
-            skills: ["HTML", "CSS", "JavaScript"],
-            positions: 2,
-            level: "Beginner Friendly"
-        },
+    {
+        name: "Student Expense Tracker",
+        category: "App Development",
+        description: "A mobile application to help students manage their daily expenses.",
+        skills: "Java, Firebase, UI Design",
+        positions: 2,
+        owner: "Priya Singh",
+        contact: "priya@example.com",
+        roles: "Android Developer and UI Designer"
+    },
 
-        {
-            title: "Smart Study Assistant",
-            category: "ai",
-            categoryName: "AI / Machine Learning",
-            description: "An intelligent study assistant that helps students organize notes and manage their learning.",
-            skills: ["Python", "Machine Learning"],
-            positions: 3,
-            level: "Intermediate"
-        },
+    {
+        name: "Online Learning Portal",
+        category: "Web Development",
+        description: "A website where students can access learning materials, quizzes and educational resources.",
+        skills: "HTML, CSS, Python",
+        positions: 1,
+        owner: "Karan Malhotra",
+        contact: "karan@example.com",
+        roles: "Backend Developer"
+    },
 
-        {
-            title: "Smart Home System",
-            category: "iot",
-            categoryName: "IoT",
-            description: "A smart home project that uses connected devices to monitor and control household appliances.",
-            skills: ["Arduino", "C++", "IoT"],
-            positions: 2,
-            level: "Intermediate"
+    {
+        name: "AI Study Assistant",
+        category: "AI / ML",
+        description: "An AI-powered study assistant that helps students organize their study materials.",
+        skills: "Python, AI, Flask",
+        positions: 2,
+        owner: "Sneha Gupta",
+        contact: "sneha@example.com",
+        roles: "AI Developer and Frontend Developer"
+    }
+];
+
+
+/* STUDENT DATA */
+
+var students = [
+    {
+        name: "Rahul Sharma",
+        role: "Frontend Developer",
+        college: "B.Tech CSE | 2nd Year",
+        cgpa: "8.7",
+        skills: ["HTML", "CSS", "JavaScript", "React"],
+        project: "Campus Website",
+        email: "rahul@example.com"
+    },
+
+    {
+        name: "Ananya Verma",
+        role: "AI/ML Developer",
+        college: "B.Tech CSE | 2nd Year",
+        cgpa: "9.1",
+        skills: ["Python", "Java", "AI/ML"],
+        project: "Face Recognition",
+        email: "ananya@example.com"
+    },
+
+    {
+        name: "Arjun Mehta",
+        role: "Backend Developer",
+        college: "B.Tech CSE | 3rd Year",
+        cgpa: "8.4",
+        skills: ["Python", "Java", "IoT"],
+        project: "Smart Home",
+        email: "arjun@example.com"
+    },
+
+    {
+        name: "Priya Singh",
+        role: "UI Designer",
+        college: "B.Tech CSE | 2nd Year",
+        cgpa: "8.9",
+        skills: ["UI Design", "HTML", "CSS"],
+        project: "App UI Design",
+        email: "priya@example.com"
+    },
+
+    {
+        name: "Karan Malhotra",
+        role: "Backend Developer",
+        college: "B.Tech CSE | 3rd Year",
+        cgpa: "8.2",
+        skills: ["Python", "JavaScript", "Java"],
+        project: "Learning Portal",
+        email: "karan@example.com"
+    },
+
+    {
+        name: "Sneha Gupta",
+        role: "AI/ML Developer",
+        college: "B.Tech CSE | 2nd Year",
+        cgpa: "9.3",
+        skills: ["Python", "React", "JavaScript"],
+        project: "AI Assistant",
+        email: "sneha@example.com"
+    }
+];
+
+
+/* PROJECT SEARCH AND FILTER */
+
+function filterProjects() {
+
+    var search = document.getElementById("projectSearch").value.toLowerCase();
+
+    var category = document.getElementById("projectFilter").value;
+
+    var cards = document.getElementsByClassName("project-card");
+
+    var count = 0;
+
+    for (var i = 0; i < cards.length; i++) {
+
+        var name = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+        var description = cards[i].innerText.toLowerCase();
+
+        var categoryName = cards[i].getElementsByClassName("project-category")[0].innerText;
+
+        var searchMatch = name.includes(search) || description.includes(search);
+
+        var categoryMatch = category === "all" || categoryName === category;
+
+        if (searchMatch && categoryMatch) {
+
+            cards[i].style.display = "block";
+            count++;
+
+        } else {
+
+            cards[i].style.display = "none";
+
         }
-
-    ];
-
-
-        // Student Data
-    const students = [
-
-        {
-            name: "Arjun Sharma",
-            initials: "AS",
-            cgpa: 8.7,
-            skills: ["HTML", "CSS", "JavaScript"],
-            role: "Frontend Developer",
-            project: "Portfolio Website",
-            projectLink: "https://github.com/",
-            email: "arjun@example.com"
-        },
-
-        {
-            name: "Riya Kapoor",
-            initials: "RK",
-            cgpa: 9.1,
-            skills: ["Python", "React", "UI Design"],
-            role: "AI/ML Developer",
-            project: "Student Performance Predictor",
-            projectLink: "https://github.com/",
-            email: "riya@example.com"
-        },
-
-        {
-            name: "Vikram Mehta",
-            initials: "VM",
-            cgpa: 8.4,
-            skills: ["Python", "JavaScript", "CSS"],
-            role: "Backend Developer",
-            project: "Task Management System",
-            projectLink: "https://github.com/",
-            email: "vikram@example.com"
-        }
-
-    ];
-
-
-    // Display Project Cards
-    function displayProjects(projectList) {
-
-        const projectContainer = document.getElementById("project-container");
-
-        projectContainer.innerHTML = "";
-
-        projectList.forEach(function (project, index) {
-
-            const projectCard = `
-                <div class="project-card">
-
-                    <span class="project-category">
-                        ${project.categoryName}
-                    </span>
-
-                    <h3>${project.title}</h3>
-
-                    <p>${project.description}</p>
-
-                    <div class="project-skills">
-                        ${project.skills.map(function (skill) {
-                            return `<span>${skill}</span>`;
-                        }).join("")}
-                    </div>
-
-                    <div class="project-info">
-                        <span>${project.positions} Positions Open</span>
-                        <span>${project.level}</span>
-                    </div>
-
-                    <button class="view-project-btn" data-index="${projects.indexOf(project)}">
-
-                </div>
-            `;
-
-            projectContainer.innerHTML += projectCard;
-
-        });
 
     }
 
+    document.getElementById("noProjects").style.display =
+        count === 0 ? "block" : "none";
 
-        // Display Student Cards
-    function displayStudents(studentList) {
+}
 
-        const studentContainer = document.getElementById("student-container");
 
-        studentContainer.innerHTML = "";
-                if (studentList.length === 0) {
+document.getElementById("projectSearch").addEventListener("input", filterProjects);
 
-            studentContainer.innerHTML = `
-                <div class="no-results">
-                    <h3>No Students Found</h3>
-                    <p>Try changing your search keyword or filters.</p>
-                </div>
-            `;
+document.getElementById("projectFilter").addEventListener("change", filterProjects);
 
-            return;
+
+/* STUDENT SEARCH AND FILTER */
+
+function filterStudents() {
+
+    var search = document.getElementById("studentSearch").value.toLowerCase();
+
+    var skill = document.getElementById("skillFilter").value;
+
+    var role = document.getElementById("roleFilter").value;
+
+    var cards = document.getElementsByClassName("student-card");
+
+    var count = 0;
+
+    for (var i = 0; i < cards.length; i++) {
+
+        var name = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+        var studentRole = cards[i].getElementsByClassName("student-role")[0].innerText;
+
+        var studentSkills = cards[i].getElementsByClassName("student-skills")[0].innerText;
+
+        var searchMatch = name.includes(search);
+
+        var skillMatch = skill === "all" || studentSkills.includes(skill);
+
+        var roleMatch = role === "all" || studentRole === role;
+
+        if (searchMatch && skillMatch && roleMatch) {
+
+            cards[i].style.display = "block";
+            count++;
+
+        } else {
+
+            cards[i].style.display = "none";
+
         }
-
-        studentList.forEach(function (student, index) {
-
-            const studentCard = `
-                <div class="student-card">
-
-                    <div class="student-avatar">
-                        ${student.initials}
-                    </div>
-
-                    <h3>${student.name}</h3>
-
-                    <p class="student-role">${student.role}</p>
-
-                    <p class="student-cgpa">
-                        CGPA: ${student.cgpa}
-                    </p>
-
-                    <div class="student-skills">
-                        ${student.skills.map(function (skill) {
-                            return `<span>${skill}</span>`;
-                        }).join("")}
-                    </div>
-
-                    <div class="student-projects">
-                        <p>Previous Project:</p>
-                        <a href="${student.projectLink}" target="_blank">
-                            ${student.project}
-                        </a>
-                    </div>
-
-                    <button class="contact-student-btn" data-index="${students.indexOf(student)}">
-
-                </div>
-            `;
-
-            studentContainer.innerHTML += studentCard;
-
-        });
 
     }
 
-    // Display all students when the website loads
-    displayStudents(students);
-    // Student Search and Filtering
+    document.getElementById("noStudents").style.display =
+        count === 0 ? "block" : "none";
 
-    const studentSearch = document.getElementById("student-search");
-    const studentSkill = document.getElementById("student-skill");
-    const studentRole = document.getElementById("student-role");
+}
 
-        // Student Profile Popup
 
-    const studentModal = document.getElementById("student-modal");
-    const closeStudentModal = document.getElementById("close-student-modal");
+document.getElementById("studentSearch").addEventListener("input", filterStudents);
 
-           // Project Form Submission
+document.getElementById("skillFilter").addEventListener("change", filterStudents);
 
-    const projectForm = document.getElementById("project-form");
-    const formMessage = document.getElementById("form-message");
+document.getElementById("roleFilter").addEventListener("change", filterStudents);
 
-    projectForm.addEventListener("submit", function (event) {
 
-        event.preventDefault();
+/* VIEW PROJECT DETAILS */
 
-        const projectTitle = document.getElementById("project-title").value.trim();
+function viewProject(index) {
 
-        const projectDescription = document.getElementById("project-description").value.trim();
+    var project = projects[index];
 
-        const projectType = document.getElementById("project-type");
+    var details = document.getElementById("modalDetails");
 
-        const requiredSkills = document.getElementById("required-skills").value.trim();
+    details.innerHTML = `
 
-        const openPositions = document.getElementById("open-positions").value;
+        <p class="small-heading">PROJECT DETAILS</p>
 
-        const projectContact = document.getElementById("project-contact").value.trim();
+        <h2>${project.name}</h2>
 
-        // Check Required Fields
-        if (
-            projectTitle === "" ||
-            projectDescription === "" ||
-            projectType.value === "" ||
-            requiredSkills === "" ||
-            openPositions === "" ||
-            projectContact === ""
-        ) {
+        <p><strong>Category:</strong> ${project.category}</p>
 
-            formMessage.textContent = "Please fill in all the fields.";
-            formMessage.style.color = "red";
+        <p>${project.description}</p>
 
-            return;
+        <div class="modal-details">
 
-        }
+            <p><strong>Required Skills:</strong> ${project.skills}</p>
 
-        // Create New Project
-        const newProject = {
+            <p><strong>Open Positions:</strong> ${project.positions}</p>
 
-            title: projectTitle,
+            <p><strong>Required Roles:</strong> ${project.roles}</p>
 
-            category: projectType.value,
+            <p><strong>Project Owner:</strong> ${project.owner}</p>
 
-            categoryName: projectType.options[projectType.selectedIndex].text,
+        </div>
 
-            description: projectDescription,
+        <button class="primary-button" onclick="requestJoin('${project.contact}', '${project.name}')">
 
-            skills: requiredSkills.split(",").map(function (skill) {
-                return skill.trim();
-            }).filter(Boolean),
+            Request to Join Team
 
-            positions: Number(openPositions),
+        </button>
 
-            level: "Student Submitted",
+    `;
 
-            contact: projectContact
+    document.getElementById("detailsModal").style.display = "flex";
 
-        };
+}
 
-        // Add Project to Project Array
-        projects.push(newProject);
 
-        // Refresh Project Display
-        filterProjects();
+/* VIEW STUDENT PROFILE */
 
-        // Show Success Message
-        formMessage.textContent = "Your project has been added successfully!";
-        formMessage.style.color = "green";
+function viewStudent(index) {
 
-        // Reset Form
-        projectForm.reset();
+    var student = students[index];
 
-    });
+    var details = document.getElementById("modalDetails");
 
-    // Open Student Profile
-    document.getElementById("student-container").addEventListener("click", function (event) {
+    details.innerHTML = `
 
-        if (event.target.classList.contains("contact-student-btn")) {
+        <p class="small-heading">STUDENT PROFILE</p>
 
-            const studentIndex = Number(event.target.dataset.index);
+        <h2>${student.name}</h2>
 
-            const student = students[studentIndex];
+        <p><strong>Role:</strong> ${student.role}</p>
 
-            if (!student) return;
+        <p>${student.college}</p>
 
-            document.getElementById("modal-student-avatar").textContent = student.initials;
+        <div class="modal-details">
 
-            document.getElementById("modal-student-name").textContent = student.name;
+            <p><strong>CGPA:</strong> ${student.cgpa}</p>
 
-            document.getElementById("modal-student-role").textContent = student.role;
+            <p><strong>Technical Skills:</strong> ${student.skills.join(", ")}</p>
 
-            document.getElementById("modal-student-cgpa").textContent =
-                "CGPA: " + student.cgpa;
+            <p><strong>Previous Project:</strong> ${student.project}</p>
 
-            document.getElementById("modal-student-skills").innerHTML =
-                student.skills.map(function (skill) {
-                    return `<span>${skill}</span>`;
-                }).join("");
+            <p><strong>Email:</strong> ${student.email}</p>
 
-            const projectLink = document.getElementById("modal-student-project");
+        </div>
 
-            projectLink.textContent = student.project;
-            projectLink.href = student.projectLink;
+        <button class="primary-button" onclick="requestJoin('${student.email}', '${student.name}')">
 
-            const emailLink = document.getElementById("modal-student-email");
+            Request to Join Team
 
-            emailLink.textContent = student.email;
-            emailLink.href = "mailto:" + student.email;
+        </button>
 
-            studentModal.style.display = "flex";
+    `;
 
-        }
+    document.getElementById("detailsModal").style.display = "flex";
 
-    });
+}
 
-    // Close Student Profile
-    closeStudentModal.addEventListener("click", function () {
-        studentModal.style.display = "none";
-    });
 
-    // Close Popup by Clicking Outside
-    studentModal.addEventListener("click", function (event) {
+/* REQUEST TO JOIN TEAM */
 
-        if (event.target === studentModal) {
-            studentModal.style.display = "none";
-        }
+function requestJoin(email, name) {
 
-    });
+    var details = document.getElementById("modalDetails");
 
-    // Filter Students
-    function filterStudents() {
+    details.innerHTML = `
 
-        const searchText = studentSearch.value.toLowerCase();
-        const selectedSkill = studentSkill.value;
-        const selectedRole = studentRole.value;
+        <p class="small-heading">TEAM COLLABORATION</p>
 
-        const filteredStudents = students.filter(function (student) {
+        <h2>Request to Join</h2>
 
-            const matchesSearch =
-                student.name.toLowerCase().includes(searchText) ||
-                student.role.toLowerCase().includes(searchText) ||
-                student.skills.join(" ").toLowerCase().includes(searchText) ||
-                student.project.toLowerCase().includes(searchText);
+        <p>You are interested in collaborating with <strong>${name}</strong>.</p>
 
-            const matchesSkill =
-                selectedSkill === "all" ||
-                student.skills.includes(selectedSkill);
+        <div class="modal-details">
 
-            const matchesRole =
-                selectedRole === "all" ||
-                student.role === selectedRole;
+            <p><strong>Contact Details:</strong></p>
 
-            return matchesSearch && matchesSkill && matchesRole;
+            <p>${email}</p>
 
-        });
+            <p>Send a message to introduce yourself and explain how you can contribute to the project.</p>
 
-        displayStudents(filteredStudents);
+        </div>
+
+        <a href="mailto:${email}?subject=TeamUp%20Collaboration%20Request"
+
+           class="primary-button">
+
+            Send Email Request
+
+        </a>
+
+    `;
+
+}
+
+
+/* CLOSE MODAL */
+
+function closeModal() {
+
+    document.getElementById("detailsModal").style.display = "none";
+
+}
+
+
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+window.onclick = function(event) {
+
+    var modal = document.getElementById("detailsModal");
+
+    if (event.target === modal) {
+
+        closeModal();
 
     }
 
-    // Listen for Search Input
-    studentSearch.addEventListener("input", filterStudents);
+};
 
-    // Listen for Skill Selection
-    studentSkill.addEventListener("change", filterStudents);
 
-    // Listen for Role Selection
-    studentRole.addEventListener("change", filterStudents);
+/* POST NEW PROJECT */
 
-    // Project Search and Category Filtering
+document.getElementById("projectForm").addEventListener("submit", function(event) {
 
-    const projectSearch = document.getElementById("project-search");
-    const projectCategory = document.getElementById("project-category");
+    event.preventDefault();
 
-    // Filter Projects
-    function filterProjects() {
+    var name = document.getElementById("newProjectName").value;
 
-        const searchText = projectSearch.value.toLowerCase();
-        const selectedCategory = projectCategory.value;
+    var owner = document.getElementById("newProjectOwner").value;
 
-        const filteredProjects = projects.filter(function (project) {
+    var category = document.getElementById("newProjectCategory").value;
 
-            const matchesSearch =
-                project.title.toLowerCase().includes(searchText) ||
-                project.description.toLowerCase().includes(searchText) ||
-                project.skills.join(" ").toLowerCase().includes(searchText);
+    var description = document.getElementById("newProjectDescription").value;
 
-            const matchesCategory =
-                selectedCategory === "all" ||
-                project.category === selectedCategory;
+    var skills = document.getElementById("newProjectSkills").value;
 
-            return matchesSearch && matchesCategory;
+    var positions = document.getElementById("newProjectPositions").value;
 
-        });
 
-        displayProjects(filteredProjects);
+    // Add the new project to the project data
 
-    }
+    projects.push({
 
-    // Listen for Search Input
-    projectSearch.addEventListener("input", filterProjects);
+        name: name,
 
-    // Listen for Category Selection
-    projectCategory.addEventListener("change", filterProjects);
+        category: category,
 
-    // Project Details Popup
+        description: description,
 
-    const projectModal = document.getElementById("project-modal");
-    const closeProjectModal = document.getElementById("close-project-modal");
+        skills: skills,
 
-    // Request to Join Team
+        positions: positions,
 
-    const joinProjectButton = document.getElementById("join-project-btn");
+        owner: owner,
 
-    let selectedProject = null;
+        contact: "student@example.com",
 
-    // Store the selected project when opening its details
-    document.getElementById("project-container").addEventListener("click", function (event) {
-
-        if (event.target.classList.contains("view-project-btn")) {
-
-            const projectIndex = Number(event.target.dataset.index);
-
-            selectedProject = projects[projectIndex];
-
-        }
+        roles: skills
 
     });
 
-    // Send Join Request
-    joinProjectButton.addEventListener("click", function () {
 
-        if (!selectedProject) {
-            return;
-        }
+    // Create a new project card
 
-        if (!selectedProject.contact) {
-            alert("Contact information is not available for this project.");
-            return;
-        }
+    var projectList = document.getElementById("projectList");
 
-        const subject = "Request to Join Project: " + selectedProject.title;
+    var newCard = document.createElement("div");
 
-        const message =
-            "Hello,\n\n" +
-            "I am interested in joining your project: " + selectedProject.title + ".\n\n" +
-            "I would like to contribute to this project and collaborate with your team.\n\n" +
-            "Please let me know if there is an opportunity to join.\n\n" +
-            "Thank you.";
+    newCard.className = "project-card";
 
-        const emailLink =
-            "mailto:" + selectedProject.contact +
-            "?subject=" + encodeURIComponent(subject) +
-            "&body=" + encodeURIComponent(message);
+    var newIndex = projects.length - 1;
 
-        window.location.href = emailLink;
+    newCard.innerHTML = `
 
-    });
+        <span class="project-category">${category}</span>
 
-    // Open Project Details
-    document.getElementById("project-container").addEventListener("click", function (event) {
+        <h3>${name}</h3>
 
-        if (event.target.classList.contains("view-project-btn")) {
+        <p>${description}</p>
 
-            const projectIndex = Number(event.target.dataset.index);
-            const project = projects.find(function (item, index) {
-                return index === projectIndex;
-            });
+        <div class="project-tech">
 
-            if (!project) return;
+            <span>${skills}</span>
 
-            document.getElementById("modal-project-title").textContent = project.title;
-            document.getElementById("modal-project-category").textContent = project.categoryName;
-            document.getElementById("modal-project-description").textContent = project.description;
+        </div>
 
-            document.getElementById("modal-project-skills").innerHTML =
-                project.skills.map(function (skill) {
-                    return `<span>${skill}</span>`;
-                }).join("");
+        <div class="project-info">
 
-            document.getElementById("modal-project-positions").textContent =
-                project.positions + " Positions Open";
+            <span>${positions} Positions Open</span>
 
-            document.getElementById("modal-project-level").textContent =
-                "Difficulty: " + project.level;
+            <span>By ${owner}</span>
 
-            projectModal.style.display = "flex";
-                        const projectContact = document.getElementById("modal-project-contact");
+        </div>
 
-            if (project.contact) {
+        <button class="view-button" onclick="viewProject(${newIndex})">
 
-                projectContact.textContent = project.contact;
-                projectContact.href = "mailto:" + project.contact;
+            View Project →
 
-            } else {
+        </button>
 
-                projectContact.textContent = "Contact information unavailable";
-                projectContact.removeAttribute("href");
+    `;
 
-            }
-        }
 
-    });
+    projectList.appendChild(newCard);
 
-    // Close Popup
-    closeProjectModal.addEventListener("click", function () {
-        projectModal.style.display = "none";
-    });
 
-    // Close Popup by Clicking Outside
-    projectModal.addEventListener("click", function (event) {
-        if (event.target === projectModal) {
-            projectModal.style.display = "none";
-        }
-    });
+    // Show success message
 
-    // Close Popups Using Escape Key
+    document.getElementById("formMessage").innerText =
 
-    document.addEventListener("keydown", function (event) {
+        "Your project has been published successfully!";
 
-        if (event.key === "Escape") {
 
-            projectModal.style.display = "none";
+    // Clear the form
 
-            studentModal.style.display = "none";
+    document.getElementById("projectForm").reset();
 
-        }
 
-    });
+    // Refresh project filters
+
+    filterProjects();
 
 });

@@ -4,432 +4,777 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>TeamUp | Find Your Perfect Project Team</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
+    <!-- NAVIGATION BAR -->
+
     <header>
-    <nav class="navbar">
+        <nav class="navbar">
 
-        <div class="logo">Team<span>Up.</span></div>
+            <div class="logo">
+                Team<span>Up.</span>
+            </div>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Explore Projects</a></li>
-            <li><a href="#students">Find Teammates</a></li>
-            <li><a href="#post-project">Post a Project</a></li>
-        </ul>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Explore Projects</a></li>
+                <li><a href="#students">Find Teammates</a></li>
+                <li><a href="#post-project">Post a Project</a></li>
+            </ul>
 
-        <a href="#students" class="nav-button">Find Your Team</a>
+            <a href="#students" class="nav-button">Find Your Team</a>
 
-    </nav>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-<section class="hero" id="home">
 
-    <div class="hero-content">
+    <!-- HOME SECTION -->
 
-        <p class="hero-tagline">BUILD BETTER. BUILD TOGETHER.</p>
+    <section class="hero" id="home">
 
-        <h1>Find Your Perfect <span>Project Team.</span></h1>
+        <div class="hero-content">
 
-        <p class="hero-description">
-            Connect with talented students, discover exciting project ideas,
-            and build something amazing together.
+            <p class="small-heading">BUILD SOMETHING GREAT TOGETHER</p>
+
+            <h1>
+                Great Projects<br>
+                Start With The<br>
+                <span>Right Team.</span>
+            </h1>
+
+            <p class="hero-description">
+                Find talented students, discover exciting project
+                ideas and connect with people who share your vision.
+                Your next great collaboration starts here.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="primary-button">
+                    Explore Projects
+                </a>
+
+                <a href="#students" class="secondary-button">
+                    Find Teammates
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-side">
+
+            <div class="hero-card">
+
+                <p class="card-label">YOUR NEXT PROJECT STARTS HERE</p>
+
+                <div class="hero-card-number">01</div>
+
+                <h3>Ideas meet<br>the right people.</h3>
+
+                <p>
+                    Connect. Collaborate. Create.
+                </p>
+
+                <div class="hero-card-footer">
+                    TEAMUP COMMUNITY
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS SECTION -->
+
+    <section class="stats">
+
+        <div class="stat-item">
+            <h2>120+</h2>
+            <p>Student Profiles</p>
+        </div>
+
+        <div class="stat-item">
+            <h2>45+</h2>
+            <p>Project Ideas</p>
+        </div>
+
+        <div class="stat-item">
+            <h2>80+</h2>
+            <p>Open Positions</p>
+        </div>
+
+        <div class="stat-item">
+            <h2>30+</h2>
+            <p>Active Teams</p>
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS SECTION -->
+
+    <section class="section" id="projects">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-heading">DISCOVER OPPORTUNITIES</p>
+                <h2>Explore Projects</h2>
+                <p class="section-description">
+                    Find interesting ideas and join projects that
+                    match your skills.
+                </p>
+            </div>
+
+            <a href="#post-project" class="text-link">
+                + Post a Project
+            </a>
+
+        </div>
+
+
+        <!-- PROJECT SEARCH -->
+
+        <div class="filter-box">
+
+            <input
+                type="text"
+                id="projectSearch"
+                placeholder="Search project by name or technology..."
+            >
+
+            <select id="projectFilter">
+                <option value="all">All Categories</option>
+                <option value="Web Development">Web Development</option>
+                <option value="AI / ML">AI / ML</option>
+                <option value="IoT">IoT</option>
+                <option value="App Development">App Development</option>
+            </select>
+
+        </div>
+
+
+        <!-- PROJECT CARDS -->
+
+        <div class="project-grid" id="projectList">
+
+            <div class="project-card">
+
+                <span class="project-category">Web Development</span>
+
+                <h3>Campus Connect</h3>
+
+                <p>
+                    A platform where college students can connect,
+                    share notes and discover campus events.
+                </p>
+
+                <div class="project-tech">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <div class="project-info">
+                    <span>2 Positions Open</span>
+                    <span>By Rahul Sharma</span>
+                </div>
+
+                <button class="view-button" onclick="viewProject(0)">
+                    View Project →
+                </button>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <span class="project-category">AI / ML</span>
+
+                <h3>Smart Attendance System</h3>
+
+                <p>
+                    An attendance management system using facial
+                    recognition technology.
+                </p>
+
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>OpenCV</span>
+                    <span>ML</span>
+                </div>
+
+                <div class="project-info">
+                    <span>2 Positions Open</span>
+                    <span>By Ananya Verma</span>
+                </div>
+
+                <button class="view-button" onclick="viewProject(1)">
+                    View Project →
+                </button>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <span class="project-category">IoT</span>
+
+                <h3>Smart Home Automation</h3>
+
+                <p>
+                    A home automation system that controls
+                    electrical devices through mobile applications.
+                </p>
+
+                <div class="project-tech">
+                    <span>Arduino</span>
+                    <span>IoT</span>
+                    <span>C++</span>
+                </div>
+
+                <div class="project-info">
+                    <span>1 Position Open</span>
+                    <span>By Arjun Mehta</span>
+                </div>
+
+                <button class="view-button" onclick="viewProject(2)">
+                    View Project →
+                </button>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <span class="project-category">App Development</span>
+
+                <h3>Student Expense Tracker</h3>
+
+                <p>
+                    A simple mobile application to help students
+                    manage their daily expenses.
+                </p>
+
+                <div class="project-tech">
+                    <span>Java</span>
+                    <span>Firebase</span>
+                    <span>UI Design</span>
+                </div>
+
+                <div class="project-info">
+                    <span>2 Positions Open</span>
+                    <span>By Priya Singh</span>
+                </div>
+
+                <button class="view-button" onclick="viewProject(3)">
+                    View Project →
+                </button>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <span class="project-category">Web Development</span>
+
+                <h3>Online Learning Portal</h3>
+
+                <p>
+                    A website where students can access learning
+                    materials, quizzes and educational resources.
+                </p>
+
+                <div class="project-tech">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Python</span>
+                </div>
+
+                <div class="project-info">
+                    <span>1 Position Open</span>
+                    <span>By Karan Malhotra</span>
+                </div>
+
+                <button class="view-button" onclick="viewProject(4)">
+                    View Project →
+                </button>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <span class="project-category">AI / ML</span>
+
+                <h3>AI Study Assistant</h3>
+
+                <p>
+                    A basic AI-powered study assistant that helps
+                    students organize their study materials.
+                </p>
+
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>AI</span>
+                    <span>Flask</span>
+                </div>
+
+                <div class="project-info">
+                    <span>2 Positions Open</span>
+                    <span>By Sneha Gupta</span>
+                </div>
+
+                <button class="view-button" onclick="viewProject(5)">
+                    View Project →
+                </button>
+
+            </div>
+
+        </div>
+
+        <p id="noProjects" class="no-results" style="display:none;">
+            No projects found. Try another search.
         </p>
 
-        <div class="hero-buttons">
-            <a href="#projects" class="primary-button">Explore Projects</a>
-            <a href="#students" class="secondary-button">Find Teammates</a>
+    </section>
+
+
+    <!-- STUDENT SECTION -->
+
+    <section class="section student-section" id="students">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-heading">MEET YOUR FUTURE TEAMMATES</p>
+                <h2>Find Teammates</h2>
+
+                <p class="section-description">
+                    Discover students with skills that complement yours.
+                </p>
+            </div>
+
         </div>
 
-    </div>
 
-</section>
+        <!-- STUDENT FILTERS -->
 
+        <div class="filter-box">
 
-<!-- Statistics Section -->
-<section class="statistics">
+            <input
+                type="text"
+                id="studentSearch"
+                placeholder="Search student by name..."
+            >
 
-    <div class="stat-item">
-        <h2>120+</h2>
-        <p>Active Students</p>
-    </div>
+            <select id="skillFilter">
 
-    <div class="stat-item">
-        <h2>35+</h2>
-        <p>Open Projects</p>
-    </div>
+                <option value="all">All Skills</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="React">React</option>
+                <option value="Java">Java</option>
+                <option value="UI Design">UI Design</option>
+                <option value="IoT">IoT</option>
 
-    <div class="stat-item">
-        <h2>50+</h2>
-        <p>Successful Matches</p>
-    </div>
-
-    <div class="stat-item">
-        <h2>15+</h2>
-        <p>Technical Skills</p>
-    </div>
-
-</section>
+            </select>
 
 
-<!-- Explore Projects Section -->
-<section class="projects-section" id="projects">
+            <select id="roleFilter">
 
-    <div class="section-heading">
-        <p class="section-tag">FIND YOUR NEXT OPPORTUNITY</p>
-        <h2>Explore <span>Projects</span></h2>
-        <p>Discover interesting ideas and find projects that match your skills.</p>
-    </div>
+                <option value="all">All Roles</option>
+                <option value="Frontend Developer">Frontend Developer</option>
+                <option value="Backend Developer">Backend Developer</option>
+                <option value="UI Designer">UI Designer</option>
+                <option value="AI/ML Developer">AI/ML Developer</option>
+                <option value="IoT Developer">IoT Developer</option>
 
-    <!-- Project Filters -->
-    <div class="project-filters">
+            </select>
 
-        <input
-            type="text"
-            id="project-search"
-            placeholder="Search projects..."
-        >
+        </div>
 
-        <select id="project-category">
-            <option value="">Select Project Type</option>
-<option value="web">Web Development</option>
-<option value="ai">AI / Machine Learning</option>
-<option value="app">App Development</option>
-<option value="iot">IoT</option>
-        </select>
 
-    </div>
+        <!-- STUDENT CARDS -->
 
-    <!-- Project Cards -->
-    <div class="project-container" id="project-container">
+        <div class="student-grid" id="studentList">
 
-        <div class="project-card">
+            <div class="student-card">
 
-            <span class="project-category">Web Development</span>
+                <div class="student-top">
+                    <div class="student-avatar">RS</div>
+                    <span class="available">Available</span>
+                </div>
 
-            <h3>Campus Connect</h3>
+                <h3>Rahul Sharma</h3>
+                <p class="student-role">Frontend Developer</p>
+
+                <p class="student-college">B.Tech CSE | 2nd Year</p>
+
+                <div class="student-cgpa">
+                    CGPA: <strong>8.7</strong>
+                </div>
+
+                <p class="skill-title">TECHNICAL SKILLS</p>
+
+                <div class="student-skills">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>React</span>
+                </div>
+
+                <p class="past-project">
+                    Past Project:
+                    <a href="https://github.com/" target="_blank">
+                        Campus Website
+                    </a>
+                </p>
+
+                <button class="view-button"
+                    onclick="viewStudent(0)">
+                    View Profile →
+                </button>
+
+            </div>
+
+
+            <div class="student-card">
+
+                <div class="student-top">
+                    <div class="student-avatar">AV</div>
+                    <span class="available">Available</span>
+                </div>
+
+                <h3>Ananya Verma</h3>
+                <p class="student-role">AI/ML Developer</p>
+
+                <p class="student-college">B.Tech CSE | 2nd Year</p>
+
+                <div class="student-cgpa">
+                    CGPA: <strong>9.1</strong>
+                </div>
+
+                <p class="skill-title">TECHNICAL SKILLS</p>
+
+                <div class="student-skills">
+                    <span>Python</span>
+                    <span>ML</span>
+                    <span>Java</span>
+                </div>
+
+                <p class="past-project">
+                    Past Project:
+                    <a href="https://github.com/" target="_blank">
+                        Face Recognition
+                    </a>
+                </p>
+
+                <button class="view-button"
+                    onclick="viewStudent(1)">
+                    View Profile →
+                </button>
+
+            </div>
+
+
+            <div class="student-card">
+
+                <div class="student-top">
+                    <div class="student-avatar">AM</div>
+                    <span class="available">Available</span>
+                </div>
+
+                <h3>Arjun Mehta</h3>
+                <p class="student-role">Backend Developer</p>
+
+                <p class="student-college">B.Tech CSE | 3rd Year</p>
+
+                <div class="student-cgpa">
+                    CGPA: <strong>8.4</strong>
+                </div>
+
+                <p class="skill-title">TECHNICAL SKILLS</p>
+
+                <div class="student-skills">
+                    <span>Python</span>
+                    <span>Java</span>
+                    <span>IoT</span>
+                </div>
+
+                <p class="past-project">
+                    Past Project:
+                    <a href="https://github.com/" target="_blank">
+                        Smart Home
+                    </a>
+                </p>
+
+                <button class="view-button"
+                    onclick="viewStudent(2)">
+                    View Profile →
+                </button>
+
+            </div>
+
+
+            <div class="student-card">
+
+                <div class="student-top">
+                    <div class="student-avatar">PS</div>
+                    <span class="available">Available</span>
+                </div>
+
+                <h3>Priya Singh</h3>
+                <p class="student-role">UI Designer</p>
+
+                <p class="student-college">B.Tech CSE | 2nd Year</p>
+
+                <div class="student-cgpa">
+                    CGPA: <strong>8.9</strong>
+                </div>
+
+                <p class="skill-title">TECHNICAL SKILLS</p>
+
+                <div class="student-skills">
+                    <span>UI Design</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                </div>
+
+                <p class="past-project">
+                    Past Project:
+                    <a href="https://github.com/" target="_blank">
+                        App UI Design
+                    </a>
+                </p>
+
+                <button class="view-button"
+                    onclick="viewStudent(3)">
+                    View Profile →
+                </button>
+
+            </div>
+
+
+            <div class="student-card">
+
+                <div class="student-top">
+                    <div class="student-avatar">KM</div>
+                    <span class="available">Available</span>
+                </div>
+
+                <h3>Karan Malhotra</h3>
+                <p class="student-role">Backend Developer</p>
+
+                <p class="student-college">B.Tech CSE | 3rd Year</p>
+
+                <div class="student-cgpa">
+                    CGPA: <strong>8.2</strong>
+                </div>
+
+                <p class="skill-title">TECHNICAL SKILLS</p>
+
+                <div class="student-skills">
+                    <span>Python</span>
+                    <span>JavaScript</span>
+                    <span>Java</span>
+                </div>
+
+                <p class="past-project">
+                    Past Project:
+                    <a href="https://github.com/" target="_blank">
+                        Learning Portal
+                    </a>
+                </p>
+
+                <button class="view-button"
+                    onclick="viewStudent(4)">
+                    View Profile →
+                </button>
+
+            </div>
+
+
+            <div class="student-card">
+
+                <div class="student-top">
+                    <div class="student-avatar">SG</div>
+                    <span class="available">Available</span>
+                </div>
+
+                <h3>Sneha Gupta</h3>
+                <p class="student-role">AI/ML Developer</p>
+
+                <p class="student-college">B.Tech CSE | 2nd Year</p>
+
+                <div class="student-cgpa">
+                    CGPA: <strong>9.3</strong>
+                </div>
+
+                <p class="skill-title">TECHNICAL SKILLS</p>
+
+                <div class="student-skills">
+                    <span>Python</span>
+                    <span>React</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <p class="past-project">
+                    Past Project:
+                    <a href="https://github.com/" target="_blank">
+                        AI Assistant
+                    </a>
+                </p>
+
+                <button class="view-button"
+                    onclick="viewStudent(5)">
+                    View Profile →
+                </button>
+
+            </div>
+
+        </div>
+
+        <p id="noStudents" class="no-results" style="display:none;">
+            No students found. Try changing the filters.
+        </p>
+
+    </section>
+
+
+    <!-- POST PROJECT SECTION -->
+
+    <section class="section post-section" id="post-project">
+
+        <div class="post-content">
+
+            <p class="small-heading">HAVE AN IDEA?</p>
+
+            <h2>Start Your Own<br>Project Team.</h2>
 
             <p>
-                A platform that helps college students connect,
-                share resources and discover campus events.
+                Have a creative idea but need the right people?
+                Share your project and invite talented students
+                to collaborate with you.
             </p>
-
-            <div class="project-skills">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-            </div>
-
-            <div class="project-info">
-                <span>2 Positions Open</span>
-                <span>Beginner Friendly</span>
-            </div>
-
-            <button class="view-project-btn">View Project</button>
 
         </div>
 
-        <div class="project-card">
 
-            <span class="project-category">AI / Machine Learning</span>
+        <div class="form-card">
 
-            <h3>Smart Study Assistant</h3>
+            <h3>Post a Project</h3>
 
-            <p>
-                An intelligent study assistant that helps students
-                organize notes and manage their learning.
+            <p class="form-description">
+                Fill in the details to share your project idea.
             </p>
 
-            <div class="project-skills">
-                <span>Python</span>
-                <span>Machine Learning</span>
-            </div>
+            <form id="projectForm">
 
-            <div class="project-info">
-                <span>3 Positions Open</span>
-                <span>Intermediate</span>
-            </div>
+                <label>Project Name</label>
+                <input type="text" id="newProjectName"
+                    placeholder="Enter project name" required>
 
-            <button class="view-project-btn">View Project</button>
+                <label>Your Name</label>
+                <input type="text" id="newProjectOwner"
+                    placeholder="Enter your name" required>
 
-        </div>
-
-        <div class="project-card">
-
-            <span class="project-category">IoT</span>
-
-            <h3>Smart Home System</h3>
-
-            <p>
-                A smart home project that uses connected devices
-                to monitor and control household appliances.
-            </p>
-
-            <div class="project-skills">
-                <span>Arduino</span>
-                <span>C++</span>
-                <span>IoT</span>
-            </div>
-
-            <div class="project-info">
-                <span>2 Positions Open</span>
-                <span>Intermediate</span>
-            </div>
-
-            <button class="view-project-btn">View Project</button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- Find Teammates Section -->
-<section class="students-section" id="students">
-
-    <div class="section-heading">
-        <p class="section-tag">MEET YOUR FUTURE TEAMMATES</p>
-        <h2>Find Your <span>Perfect Teammate</span></h2>
-        <p>Connect with students who have the skills your project needs.</p>
-    </div>
-
-    <!-- Student Filters -->
-    <div class="student-filters">
-
-        <input
-            type="text"
-            id="student-search"
-            placeholder="Search students by name..."
-        >
-
-        <select id="student-skill">
-            <option value="all">All Skills</option>
-            <option value="HTML">HTML</option>
-            <option value="CSS">CSS</option>
-            <option value="JavaScript">JavaScript</option>
-            <option value="Python">Python</option>
-            <option value="React">React</option>
-            <option value="UI Design">UI Design</option>
-        </select>
-
-        <select id="student-role">
-            <option value="all">All Roles</option>
-            <option value="Frontend Developer">Frontend Developer</option>
-            <option value="Backend Developer">Backend Developer</option>
-            <option value="UI Designer">UI Designer</option>
-            <option value="AI/ML Developer">AI/ML Developer</option>
-        </select>
-
-    </div>
-
-    <!-- Student Profile Cards -->
-    <div class="student-container" id="student-container">
-
-       
-            
-    </div>
-
-</section>
-
-
-<!-- Post a Project Section -->
-<section class="post-project-section" id="post-project">
-
-    <div class="section-heading">
-        <p class="section-tag">HAVE AN IDEA?</p>
-        <h2>Start Your <span>Own Project</span></h2>
-        <p>Share your idea and find students who can help bring it to life.</p>
-    </div>
-
-    <div class="project-form-container">
-
-        <form id="project-form">
-
-            <div class="form-group">
-                <label for="project-title">Project Title</label>
-                <input
-                    type="text"
-                    id="project-title"
-                    placeholder="Enter your project title"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="project-description">Project Description</label>
-                <textarea
-                    id="project-description"
-                    placeholder="Describe your project idea..."
-                    rows="4"
-                    required
-                ></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="project-type">Project Category</label>
-                <select id="project-type" required>
-                    <option value="">Select a category</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="AI / Machine Learning">AI / Machine Learning</option>
-                    <option value="App Development">App Development</option>
-                    <option value="IoT">IoT</option>
+                <label>Project Category</label>
+                <select id="newProjectCategory" required>
+                    <option value="">Select Category</option>
+                    <option>Web Development</option>
+                    <option>AI / ML</option>
+                    <option>IoT</option>
+                    <option>App Development</option>
                 </select>
-            </div>
 
-            <div class="form-group">
-                <label for="required-skills">Required Skills</label>
-                <input
-                    type="text"
-                    id="required-skills"
-                    placeholder="Example: HTML, CSS, Python"
-                    required
-                >
-            </div>
+                <label>Project Description</label>
+                <textarea id="newProjectDescription"
+                    placeholder="Describe your project idea..."
+                    required></textarea>
 
-            <div class="form-group">
-                <label for="open-positions">Number of Open Positions</label>
-                <input
-                    type="number"
-                    id="open-positions"
-                    min="1"
-                    placeholder="Example: 3"
-                    required
-                >
-            </div>
+                <label>Required Skills</label>
+                <input type="text" id="newProjectSkills"
+                    placeholder="Example: Python, HTML, CSS" required>
 
-            <div class="form-group">
-                <label for="project-contact">Your Email Address</label>
-                <input
-                    type="email"
-                    id="project-contact"
-                    placeholder="Enter your college email"
-                    required
-                >
-            </div>
+                <label>Open Positions</label>
+                <input type="number" id="newProjectPositions"
+                    placeholder="Number of available positions"
+                    min="1" required>
 
-            <button type="submit" class="submit-project-btn">
-                Post Your Project
+                <button type="submit" class="primary-button form-button">
+                    Publish Project
+                </button>
+
+            </form>
+
+            <p id="formMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- POPUP / DETAIL VIEW -->
+
+    <div class="modal" id="detailsModal">
+
+        <div class="modal-content">
+
+            <button class="close-button" onclick="closeModal()">
+                ×
             </button>
 
-        </form>
+            <div id="modalDetails"></div>
 
-        <p id="form-message"></p>
-
-    </div>
-
-</section>
-
-
-<!-- Footer Section -->
-<footer class="footer">
-
-    <div class="footer-content">
-
-        <div class="footer-brand">
-            <h2>Team<span>Up.</span></h2>
-            <p>
-                Bringing students together to turn ideas
-                into meaningful projects.
-            </p>
-        </div>
-
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <a href="#home">Home</a>
-            <a href="#projects">Explore Projects</a>
-            <a href="#students">Find Teammates</a>
-            <a href="#post-project">Post a Project</a>
-        </div>
-
-        <div class="footer-contact">
-            <h3>Get Connected</h3>
-            <p>Have an idea? Start building with TeamUp.</p>
-            <a href="mailto:teamup@example.com">Contact Us</a>
         </div>
 
     </div>
 
-    <div class="footer-bottom">
-        <p>&copy; 2026 TeamUp. All rights reserved.</p>
-        <p>Designed for students, built for collaboration.</p>
-    </div>
 
-</footer>
+    <!-- FOOTER -->
 
-<script src="script.js"></script>
+    <footer>
 
-<!-- Project Details Popup -->
-<div class="modal" id="project-modal">
+        <div class="footer-content">
 
-    <div class="modal-content">
+            <div>
+                <div class="logo">
+                    Team<span>Up.</span>
+                </div>
 
-        <button class="close-modal" id="close-project-modal">&times;</button>
+                <p>
+                    Bringing student ideas and talented minds together.
+                </p>
+            </div>
 
-        <h2 id="modal-project-title">Project Title</h2>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#students">Students</a>
+                <a href="#post-project">Post Project</a>
+            </div>
 
-        <span id="modal-project-category"></span>
-
-        <p id="modal-project-description"></p>
-
-        <h4>Required Skills</h4>
-        <div id="modal-project-skills"></div>
-
-        <div class="modal-info">
-            <p id="modal-project-positions"></p>
-            <p id="modal-project-level"></p>
         </div>
 
-    </div>
-
-</div>
-
-<h4>Project Contact</h4>
-<a href="#" id="modal-project-contact"></a>
-
-<button id="join-project-btn" class="primary-button">
-    Request to Join Team
-</button>
-<!-- Student Profile Popup -->
-<div class="modal" id="student-modal">
-
-    <div class="modal-content">
-
-        <button class="close-modal" id="close-student-modal">&times;</button>
-
-        <div class="student-avatar" id="modal-student-avatar"></div>
-
-        <h2 id="modal-student-name"></h2>
-
-        <p id="modal-student-role"></p>
-
-        <p id="modal-student-cgpa"></p>
-
-        <h4>Technical Skills</h4>
-        <div id="modal-student-skills"></div>
-
-        <h4>Previous Project</h4>
-        <a href="#" id="modal-student-project" target="_blank"></a>
-
-        <div class="modal-info">
-            <h4>Contact Details</h4>
-            <a href="#" id="modal-student-email"></a>
+        <div class="copyright">
+            © 2026 TeamUp. College Capstone Project.
         </div>
 
-    </div>
+    </footer>
 
-</div>
+
+    <script src="script.js"></script>
 
 </body>
-
 </html>

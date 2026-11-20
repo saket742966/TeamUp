@@ -660,3 +660,91 @@ header {
 .submit-project-btn:hover {
     background-color: #444444;
 }
+
+
+
+/* ==============================
+   FOOTER SECTION
+================================ */
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 55px 8% 20px;
+}
+
+/* Footer Main Content */
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 40px;
+}
+
+/* Footer Brand */
+
+.footer-brand h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.footer-brand h2 span {
+    color: var(--accent-color);
+}
+
+.footer-brand p {
+    max-width: 300px;
+    color: #aaaaaa;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Footer Links and Contact */
+
+.footer-links,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-links a,
+.footer-contact a {
+    color: #aaaaaa;
+    font-size: 13px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+    color: var(--accent-color);
+}
+
+.footer-contact p {
+    color: #aaaaaa;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+/* Footer Bottom */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    border-top: 1px solid #444444;
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    color: #aaaaaa;
+    font-size: 11px;
+}

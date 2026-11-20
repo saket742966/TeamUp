@@ -290,3 +290,143 @@ header {
     color: var(--secondary-color);
     margin-top: 5px;
 }
+
+
+/* ==============================
+   EXPLORE PROJECTS SECTION
+================================ */
+
+.projects-section {
+    background-color: var(--background-color);
+}
+
+/* Project Filters */
+
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.project-filters input,
+.project-filters select {
+    padding: 13px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--white-color);
+    outline: none;
+}
+
+.project-filters input {
+    width: 300px;
+}
+
+.project-filters select {
+    width: 190px;
+}
+
+.project-filters input:focus,
+.project-filters select:focus {
+    border-color: var(--primary-color);
+}
+
+/* Project Cards Container */
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Individual Project Card */
+
+.project-card {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Project Category */
+
+.project-category {
+    display: inline-block;
+    background-color: #f0f0eb;
+    color: #555555;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Project Title and Description */
+
+.project-card h3 {
+    font-size: 21px;
+    margin: 18px 0 10px;
+}
+
+.project-card p {
+    color: var(--secondary-color);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Project Skills */
+
+.project-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.project-skills span {
+    background-color: #f5f5f1;
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+/* Project Information */
+
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.project-info span {
+    font-size: 11px;
+    color: var(--secondary-color);
+}
+
+/* View Project Button */
+
+.view-project-btn {
+    width: 100%;
+    padding: 11px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.view-project-btn:hover {
+    background-color: #444444;
+}

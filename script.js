@@ -89,4 +89,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // Display all projects when the website loads
     displayProjects(projects);
 
+
+    // Project Search Functionality
+    const projectSearch = document.getElementById("project-search");
+
+    projectSearch.addEventListener("input", function () {
+
+        const searchText = projectSearch.value.toLowerCase();
+
+        const filteredProjects = projects.filter(function (project) {
+
+            return (
+                project.title.toLowerCase().includes(searchText) ||
+                project.description.toLowerCase().includes(searchText) ||
+                project.skills.join(" ").toLowerCase().includes(searchText)
+            );
+
+        });
+
+        displayProjects(filteredProjects);
+
+    });
+
+
 });

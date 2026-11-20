@@ -515,4 +515,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Close Popups Using Escape Key
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            projectModal.style.display = "none";
+
+            studentModal.style.display = "none";
+
+        }
+
+    });
+
 });

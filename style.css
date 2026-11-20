@@ -157,3 +157,98 @@ header {
 .nav-button:hover {
     background-color: #444444;
 }
+
+
+
+
+/* ==============================
+   HERO SECTION
+================================ */
+
+.hero {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 8%;
+    background-color: var(--background-color);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+/* Hero Tagline */
+
+.hero-tagline {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #777777;
+    margin-bottom: 20px;
+}
+
+/* Main Heading */
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #888888;
+}
+
+/* Hero Description */
+
+.hero-description {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: var(--secondary-color);
+    font-size: 16px;
+}
+
+/* Hero Buttons */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Primary Button */
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 13px 25px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.primary-button:hover {
+    background-color: #444444;
+}
+
+/* Secondary Button */
+
+.secondary-button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    padding: 13px 25px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: #eeeeea;
+}

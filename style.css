@@ -586,3 +586,77 @@ header {
 .contact-student-btn:hover {
     background-color: #444444;
 }
+
+
+
+/* ==============================
+   POST A PROJECT SECTION
+================================ */
+
+.post-project-section {
+    background-color: var(--background-color);
+}
+
+/* Form Container */
+
+.project-form-container {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 35px;
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+/* Form Groups */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Form Inputs */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    outline: none;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+}
+
+/* Submit Button */
+
+.submit-project-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.submit-project-btn:hover {
+    background-color: #444444;
+}

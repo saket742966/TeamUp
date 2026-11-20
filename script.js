@@ -409,6 +409,55 @@ document.addEventListener("DOMContentLoaded", function () {
     const projectModal = document.getElementById("project-modal");
     const closeProjectModal = document.getElementById("close-project-modal");
 
+    // Request to Join Team
+
+    const joinProjectButton = document.getElementById("join-project-btn");
+
+    let selectedProject = null;
+
+    // Store the selected project when opening its details
+    document.getElementById("project-container").addEventListener("click", function (event) {
+
+        if (event.target.classList.contains("view-project-btn")) {
+
+            const projectIndex = Number(event.target.dataset.index);
+
+            selectedProject = projects[projectIndex];
+
+        }
+
+    });
+
+    // Send Join Request
+    joinProjectButton.addEventListener("click", function () {
+
+        if (!selectedProject) {
+            return;
+        }
+
+        if (!selectedProject.contact) {
+            alert("Contact information is not available for this project.");
+            return;
+        }
+
+        const subject = "Request to Join Project: " + selectedProject.title;
+
+        const message =
+            "Hello,\n\n" +
+            "I am interested in joining your project: " + selectedProject.title + ".\n\n" +
+            "I would like to contribute to this project and collaborate with your team.\n\n" +
+            "Please let me know if there is an opportunity to join.\n\n" +
+            "Thank you.";
+
+        const emailLink =
+            "mailto:" + selectedProject.contact +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(message);
+
+        window.location.href = emailLink;
+
+    });
+
     // Open Project Details
     document.getElementById("project-container").addEventListener("click", function (event) {
 

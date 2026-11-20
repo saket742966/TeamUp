@@ -1022,3 +1022,13 @@ header {
     font-size: 14px;
     font-weight: 600;
 }
+
+/* Request to Join Team Button */
+
+#join-project-btn {
+    display: inline-block;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}

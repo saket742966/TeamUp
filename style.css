@@ -748,3 +748,176 @@ header {
     color: #aaaaaa;
     font-size: 11px;
 }
+
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+/* Tablets and smaller laptops */
+
+@media (max-width: 1024px) {
+
+    section {
+        padding: 65px 5%;
+    }
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .project-container,
+    .student-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* Mobile screens */
+
+@media (max-width: 768px) {
+
+    /* Navigation */
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    /* Hero Section */
+
+    .hero {
+        min-height: auto;
+        padding: 80px 6%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    /* Statistics */
+
+    .statistics {
+        justify-content: center;
+        gap: 35px;
+    }
+
+    .stat-item {
+        width: 40%;
+    }
+
+    /* Section Headings */
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+    /* Filters */
+
+    .project-filters,
+    .student-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .project-filters input,
+    .project-filters select,
+    .student-filters input,
+    .student-filters select {
+        width: 100%;
+    }
+
+    /* Cards */
+
+    .project-container,
+    .student-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Project Form */
+
+    .project-form-container {
+        padding: 25px 18px;
+    }
+
+    /* Footer */
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+/* Very small mobile screens */
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-button {
+        font-size: 12px;
+        padding: 10px 16px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        letter-spacing: -1px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons a {
+        text-align: center;
+    }
+
+    .stat-item h2 {
+        font-size: 27px;
+    }
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+
+}

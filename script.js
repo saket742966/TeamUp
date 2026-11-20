@@ -177,29 +177,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Display all students when the website loads
     displayStudents(students);
-        // Student Search Functionality
+           // Student Search and Filtering
 
     const studentSearch = document.getElementById("student-search");
+    const studentSkill = document.getElementById("student-skill");
+    const studentRole = document.getElementById("student-role");
 
-    studentSearch.addEventListener("input", function () {
+    // Filter Students
+    function filterStudents() {
 
         const searchText = studentSearch.value.toLowerCase();
+        const selectedSkill = studentSkill.value;
+        const selectedRole = studentRole.value;
 
         const filteredStudents = students.filter(function (student) {
 
-            return (
+            const matchesSearch =
                 student.name.toLowerCase().includes(searchText) ||
                 student.role.toLowerCase().includes(searchText) ||
                 student.skills.join(" ").toLowerCase().includes(searchText) ||
-                student.project.toLowerCase().includes(searchText)
-            );
+                student.project.toLowerCase().includes(searchText);
+
+            const matchesSkill =
+                selectedSkill === "all" ||
+                student.skills.includes(selectedSkill);
+
+            const matchesRole =
+                selectedRole === "all" ||
+                student.role === selectedRole;
+
+            return matchesSearch && matchesSkill && matchesRole;
 
         });
 
         displayStudents(filteredStudents);
 
-    });
+    }
 
+    // Listen for Search Input
+    studentSearch.addEventListener("input", filterStudents);
+
+    // Listen for Skill Selection
+    studentSkill.addEventListener("change", filterStudents);
+
+    // Listen for Role Selection
+    studentRole.addEventListener("change", filterStudents);
 
     // Project Search and Category Filtering
 

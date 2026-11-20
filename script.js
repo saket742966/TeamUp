@@ -42,6 +42,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ];
 
+
+        // Student Data
+    const students = [
+
+        {
+            name: "Arjun Sharma",
+            initials: "AS",
+            cgpa: 8.7,
+            skills: ["HTML", "CSS", "JavaScript"],
+            role: "Frontend Developer",
+            project: "Portfolio Website",
+            projectLink: "https://github.com/",
+            email: "arjun@example.com"
+        },
+
+        {
+            name: "Riya Kapoor",
+            initials: "RK",
+            cgpa: 9.1,
+            skills: ["Python", "React", "UI Design"],
+            role: "AI/ML Developer",
+            project: "Student Performance Predictor",
+            projectLink: "https://github.com/",
+            email: "riya@example.com"
+        },
+
+        {
+            name: "Vikram Mehta",
+            initials: "VM",
+            cgpa: 8.4,
+            skills: ["Python", "JavaScript", "CSS"],
+            role: "Backend Developer",
+            project: "Task Management System",
+            projectLink: "https://github.com/",
+            email: "vikram@example.com"
+        }
+
+    ];
+
+
     // Display Project Cards
     function displayProjects(projectList) {
 
@@ -84,8 +124,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    // Display all projects when the website loads
-    displayProjects(projects);
+
+        // Display Student Cards
+    function displayStudents(studentList) {
+
+        const studentContainer = document.getElementById("student-container");
+
+        studentContainer.innerHTML = "";
+
+        studentList.forEach(function (student, index) {
+
+            const studentCard = `
+                <div class="student-card">
+
+                    <div class="student-avatar">
+                        ${student.initials}
+                    </div>
+
+                    <h3>${student.name}</h3>
+
+                    <p class="student-role">${student.role}</p>
+
+                    <p class="student-cgpa">
+                        CGPA: ${student.cgpa}
+                    </p>
+
+                    <div class="student-skills">
+                        ${student.skills.map(function (skill) {
+                            return `<span>${skill}</span>`;
+                        }).join("")}
+                    </div>
+
+                    <div class="student-projects">
+                        <p>Previous Project:</p>
+                        <a href="${student.projectLink}" target="_blank">
+                            ${student.project}
+                        </a>
+                    </div>
+
+                    <button class="contact-student-btn" data-index="${index}">
+                        View Profile
+                    </button>
+
+                </div>
+            `;
+
+            studentContainer.innerHTML += studentCard;
+
+        });
+
+    }
+
+    // Display all students when the website loads
+    displayStudents(students);
 
 
 
